@@ -1,0 +1,74 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.csproj.user
+*.vbproj.user
+*.vscode
+
+# Build results
+[Bb]in/
+**/[Bb]in/
+[Oo]bj/
+**/[Oo]bj/
+bld/
+[Dd]ebug*/
+[Rr]elease*/
+[Ll]og/
+[Ll]ogs/
+
+# IDE directories
+.vs/
+.idea/
+.vscode/
+
+# Packages
+packages/
+artifacts/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
+
+# Testing
+TestResult*/
+[Tt]est[Rr]esult*/
+*.coverage
+*.coveragexml
+*.opendb
+
+# Resharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# OS / tooling
+[Dd]esktop.ini
+[Tt]humbs.db
+*.swp
+*.bak
+*.tmp
+*.log
+*.tlog
+
+# Mobile / MAUI outputs
+*.apk
+*.ap_
+*.aab
+*.app
+*.ipa
+
+# Databases
+*.db
+*.db-shm
+*.db-wal
+
+# Node (if present)
+node_modules/
+package-lock.json
+yarn.lock
