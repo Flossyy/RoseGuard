@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RoseGuard.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:RoseGuard.Controls">
+    <ContentPage.Content>
+        <Grid
+            Padding="24"
+            RowSpacing="24"
+            VerticalOptions="Center">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--  Header  -->
+            <VerticalStackLayout Grid.Row="0" Spacing="4">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    Text="RoseGuard" />
+                <Label
+                    FontSize="14"
+                    Opacity="0.7"
+                    Text="Use Encrypted local storage" />
+            </VerticalStackLayout>
+
+            <!--  Use Local Storage button  -->
+            <VerticalStackLayout Grid.Row="1" Spacing="8">
+                <controls:HoverButton
+                    Command="{Binding UseLocalStorageCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Text="Use Local Storage" />
+            </VerticalStackLayout>
+
+            <!--  Separator: line + 'or' text in one row  -->
+            <Grid Grid.Row="2" ColumnSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <BoxView
+                    Grid.Column="0"
+                    BackgroundColor="LightGray"
+                    HeightRequest="1"
+                    VerticalOptions="Center" />
+
+                <Label
+                    Grid.Column="1"
+                    FontSize="12"
+                    Opacity="0.6"
+                    Text="OR"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Grid.Column="2"
+                    BackgroundColor="LightGray"
+                    HeightRequest="1"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <!--  Cloud login section with overlay spinner  -->
+            <Grid Grid.Row="3">
+                <!--  Main cloud login form  -->
+                <VerticalStackLayout Spacing="12" VerticalOptions="Start">
+
+                    <Label
+                        FontSize="14"
+                        Opacity="0.7"
+                        Text="Login to cloud" />
+
+                    <Entry
+                        ClearButtonVisibility="WhileEditing"
+                        Keyboard="Email"
+                        Placeholder="Email or username"
+                        Text="{Binding UserName}" />
+
+                    <Entry
+                        ClearButtonVisibility="WhileEditing"
+                        IsPassword="True"
+                        Placeholder="Password"
+                        Text="{Binding Password}" />
+
+                    <controls:HoverButton
+                        Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Text="Login" />
+
+                    <!--  You can remove the old inline ActivityIndicator here  -->
+                    <!--<ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />-->
+
+                    <Label
+                        IsVisible="{Binding HasError}"
+                        Text="{Binding ErrorMessage}"
+                        TextColor="Red" />
+                </VerticalStackLayout>
+
+                <!--  Overlay spinner covering the whole cloud section  -->
+                <Grid
+                    HorizontalOptions="Fill"
+                    InputTransparent="False"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="Fill">
+
+                    <ActivityIndicator
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding IsBusy}"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
