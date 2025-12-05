@@ -92,9 +92,6 @@
                         IsEnabled="{Binding IsNotBusy}"
                         Text="Login" />
 
-                    <!--  You can remove the old inline ActivityIndicator here  -->
-                    <!--<ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />-->
-
                     <Label
                         IsVisible="{Binding HasError}"
                         Text="{Binding ErrorMessage}"
